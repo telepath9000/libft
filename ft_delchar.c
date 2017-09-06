@@ -1,19 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   ft_delchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wdebs <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: wdebs <wdebs@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/29 17:28:01 by wdebs             #+#    #+#             */
-/*   Updated: 2016/09/29 21:26:51 by wdebs            ###   ########.fr       */
+/*   Created: 2017/04/03 15:55:19 by wdebs             #+#    #+#             */
+/*   Updated: 2017/04/03 15:55:23 by wdebs            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd(t_list **alst, t_list *new)
+char	*ft_delchar(char *str, int place)
 {
-	new->next = *alst;
-	*alst = new;
+	char	*tmp;
+	int		size;
+	int		j;
+	int		i;
+
+	i = 0;
+	j = 0;
+	size = ft_strlen(str) - 1;
+	tmp = ft_strnew(size);
+	while (str[i] != '\0')
+	{
+		if (i != place)
+		{
+			tmp[j] = str[i];
+			j++;
+		}
+		i++;
+	}
+	free(str);
+	return (tmp);
 }

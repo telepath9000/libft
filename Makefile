@@ -6,13 +6,14 @@
 #    By: wdebs <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/09/25 21:05:50 by wdebs             #+#    #+#              #
-#    Updated: 2017/01/31 18:40:44 by wdebs            ###   ########.fr        #
+#    Updated: 2017/04/28 22:43:38 by wdebs            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
 CC = gcc
+IFLAGS = -I includes
 
 SRC = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 	  ft_isdigit.c ft_isprint.c ft_memccpy.c ft_memchr.c ft_memcmp.c \
@@ -26,7 +27,10 @@ SRC = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 	  ft_putnbr.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 	  ft_itoa.c ft_lstnew.c ft_lstadd.c ft_lstdel.c ft_lstdelone.c ft_lstiter.c \
 	  ft_lstmap.c ft_swap.c ft_isupper.c ft_islower.c ft_isblank.c ft_strcspn.c \
-	  ft_strtrim.c
+	  ft_strtrim.c grab_line.c ft_setenv.c ft_unsetenv.c b_tree.c \
+	  ft_getchar_mod.c ft_insrtchar.c ft_delchar.c ft_strspn.c ft_tdnew.c \
+	  ft_reallloc2.c ft_twodlen.c ft_twodfree.c ft_strlcmp.c \
+	  get_next_line.c \
 
 OBJ = ft_atoi.o ft_bzero.o ft_isalnum.o ft_isalpha.o ft_isascii.o \
 	  ft_isdigit.o ft_isprint.o ft_memccpy.o ft_memchr.o ft_memcmp.o \
@@ -40,15 +44,18 @@ OBJ = ft_atoi.o ft_bzero.o ft_isalnum.o ft_isalpha.o ft_isascii.o \
 	  ft_putnbr.o ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o \
 	  ft_itoa.o ft_lstnew.o ft_lstadd.o ft_lstdel.o ft_lstdelone.o ft_lstiter.o \
 	  ft_lstmap.o ft_swap.o ft_isupper.o ft_islower.o ft_isblank.o ft_strcspn.o \
-	  ft_strtrim.o
+	  ft_strtrim.o grab_line.o ft_setenv.o ft_unsetenv.o b_tree.o \
+	  ft_getchar_mod.o ft_insrtchar.o ft_delchar.o ft_strspn.o ft_tdnew.o \
+	  ft_realloc2.o ft_twodlen.o ft_twodfree.o ft_strlcmp.o \
+	  get_next_line.o \
 
 CFLAGS = -Wall -Wextra -Werror -c
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -o $(SRC)
-	ar rc $(NAME)
+$(NAME):
+	$(CC) $(IFLAGS) $(CFLAGS) *.c
+	ar rc $(NAME) *.o
 	ranlib $(NAME)
 
 clean:
@@ -58,5 +65,3 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
-
-.PHONY: clean fclean re

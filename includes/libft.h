@@ -6,7 +6,7 @@
 /*   By: wdebs <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/29 22:58:21 by wdebs             #+#    #+#             */
-/*   Updated: 2016/12/12 21:21:58 by wdebs            ###   ########.fr       */
+/*   Updated: 2017/04/28 18:21:35 by wdebs            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <string.h>
 # include <fcntl.h>
 
-# define BUFF_SIZE 5
+# define BUFF_SIZE 1028
 
 typedef struct		s_list
 {
@@ -26,7 +26,13 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
-int					get_next_line(const int fd, char **line);
+typedef struct		s_tree
+{
+	int				data;
+	struct s_tree	*left;
+	struct s_tree	*right;
+}					t_tree;
+
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
@@ -73,7 +79,7 @@ char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
 char				*ft_itoa(int n);
-void				ft_putchar(char c);
+int					ft_putchar(int c);
 void				ft_putstr(char const *s);
 void				ft_putendl(char const *s);
 void				ft_putnbr(int n);
@@ -94,4 +100,24 @@ int					ft_isupper(int c);
 int					ft_islower(int c);
 int					ft_isblank(int c);
 size_t				ft_strcspn(const char *s1, const char *s2);
+int					grab_line(const int fd, char **line);
+int					ft_setenv(const char *name, const char *value);
+int					ft_unsetenv(const char *name);
+
+int					search_bst(t_tree *node, int data);
+t_tree				*new_node(int data);
+t_tree				*insert_bst(t_tree *node, int data);
+t_tree				*create_bst(int *arr, int start, int size);
+
+char				ft_getchar_mod(int fd);
+char				*ft_insrtchar(char *str, int place, char c);
+char				*ft_delchar(char *str, int place);
+size_t				ft_strspn(const char *s, const char *accept);
+char				**ft_realloc2(char **arr);
+char				**ft_tdnew(int size);
+int					ft_twodlen(char **arr);
+char				**ft_freetwod(char **str);
+int					ft_strlcmp(const char *s1, const char *s2, int size);
+int					get_next_line(const int fd, char **line);
+
 #endif

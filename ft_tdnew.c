@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   ft_tdnew.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wdebs <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: wdebs <wdebs@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/29 17:28:01 by wdebs             #+#    #+#             */
-/*   Updated: 2016/09/29 21:26:51 by wdebs            ###   ########.fr       */
+/*   Created: 2017/04/13 19:04:26 by wdebs             #+#    #+#             */
+/*   Updated: 2017/04/14 20:23:18 by wdebs            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd(t_list **alst, t_list *new)
+char	**ft_tdnew(int size)
 {
-	new->next = *alst;
-	*alst = new;
+	char	**new;
+	int		i;
+
+	i = -1;
+	new = (char **)malloc(sizeof(char *) * (size + 1));
+	while (++i <= size)
+		new[i] = 0;
+	return (new);
 }

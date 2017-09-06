@@ -6,11 +6,11 @@
 /*   By: wdebs <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:23:06 by wdebs             #+#    #+#             */
-/*   Updated: 2016/10/09 00:04:05 by wdebs            ###   ########.fr       */
+/*   Updated: 2017/04/17 13:27:51 by wdebs            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/libft.h"
 
 static int	wordc(char const *str, char x)
 {

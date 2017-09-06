@@ -6,7 +6,7 @@
 /*   By: wdebs <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/01 03:24:53 by wdebs             #+#    #+#             */
-/*   Updated: 2016/10/01 03:40:16 by wdebs            ###   ########.fr       */
+/*   Updated: 2017/02/06 19:26:51 by wdebs            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 size_t	ft_strcspn(const char *s1, const char *s2)
 {
-	size_t i;
-	
+	size_t	i;
+
 	if (s1 == NULL || s2 == NULL)
 		return (0);
 	i = 0;

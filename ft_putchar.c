@@ -6,13 +6,14 @@
 /*   By: wdebs <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 14:25:29 by wdebs             #+#    #+#             */
-/*   Updated: 2016/09/21 14:27:34 by wdebs            ###   ########.fr       */
+/*   Updated: 2017/03/14 17:48:03 by wdebs            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(char c)
+int		ft_putchar(int c)
 {
 	write(1, &c, 1);
+	return (0);
 }

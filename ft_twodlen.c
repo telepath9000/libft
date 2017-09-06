@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   ft_twodlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wdebs <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: wdebs <wdebs@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/29 17:28:01 by wdebs             #+#    #+#             */
-/*   Updated: 2016/09/29 21:26:51 by wdebs            ###   ########.fr       */
+/*   Created: 2017/04/17 15:26:05 by wdebs             #+#    #+#             */
+/*   Updated: 2017/04/17 15:28:22 by wdebs            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd(t_list **alst, t_list *new)
+int		ft_twodlen(char **arr)
 {
-	new->next = *alst;
-	*alst = new;
+	int		i;
+
+	i = 0;
+	while (arr[i])
+		i++;
+	return (i);
 }

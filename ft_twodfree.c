@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   ft_twodfree.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wdebs <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: wdebs <wdebs@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/29 17:28:01 by wdebs             #+#    #+#             */
-/*   Updated: 2016/09/29 21:26:51 by wdebs            ###   ########.fr       */
+/*   Created: 2017/04/28 16:45:42 by wdebs             #+#    #+#             */
+/*   Updated: 2017/04/28 16:45:57 by wdebs            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd(t_list **alst, t_list *new)
+char	**ft_freetwod(char **str)
 {
-	new->next = *alst;
-	*alst = new;
+	int	i;
+
+	i = 0;
+	if (str)
+	{
+		while (str[i])
+		{
+			free(str[i]);
+			str[i] = NULL;
+			i++;
+		}
+		free(str);
+		str = NULL;
+	}
+	return (str);
 }

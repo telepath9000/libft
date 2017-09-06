@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   ft_strlcmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wdebs <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/29 17:28:01 by wdebs             #+#    #+#             */
-/*   Updated: 2016/09/29 21:26:51 by wdebs            ###   ########.fr       */
+/*   Created: 2016/09/21 18:41:32 by wdebs             #+#    #+#             */
+/*   Updated: 2017/04/27 21:51:17 by wdebs            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_lstadd(t_list **alst, t_list *new)
+int		ft_strlcmp(const char *s1, const char *s2, int size)
 {
-	new->next = *alst;
-	*alst = new;
+	int		i;
+	int		ret;
+
+	i = 0;
+	ret = 0;
+	while (s1 && s2 && (s1[i] || s2[i]) && i < size)
+	{
+		if (s1[i] == 0 || s2[i] == 0)
+			ret = -1;
+		else if (s1[i] - s2[i] != 0)
+			ret = 1;
+		if (ret != 0)
+			break ;
+		i++;
+	}
+	return (ret);
 }
